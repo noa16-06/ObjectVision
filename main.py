@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 def yolo_object_detector():
-    model = YOLO("yolov8n.pt")  # n = nano (schnell)
+    model = YOLO("yolov8n.pt")  # n = nano (fast)
 
     cap = cv2.VideoCapture(0)
 
@@ -27,12 +27,12 @@ def yolo_object_detector():
                 conf = float(box.conf[0])
                 label = model.names[cls]
 
-                # Rechteck zeichnen
+                # Draw a Recktangel
                 x1, y1, x2, y2 = map(int, box.xyxy[0])
                 cx = (x1 + x2) // 2
                 cy = (y1 + y2) // 2
 
-                color = colors.get(label, (0, 255, 255))  # Standardfarbe Gelb
+                color = colors.get(label, (0, 255, 255))
                 cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
                 cv2.circle(frame, (cx, cy), 5, (0, 0, 0), -1)
                 cv2.putText(frame, f"{label} {conf:.2f}",
