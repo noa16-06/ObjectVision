@@ -32,6 +32,6 @@ The YOLOv8 Nano model (yolov8n.pt) is used by default. You can also use other YO
 
 Run the script:
 ```bash
-python yolo_object_detector.py
+python main.py
 ```
 A webcam window will open. Press q to quit.
